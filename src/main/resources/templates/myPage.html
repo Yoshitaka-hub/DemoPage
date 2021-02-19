@@ -12,43 +12,6 @@
 	integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA="
 	crossorigin="anonymous">
 <link href='fullcalendar/main.css' rel='stylesheet' />
-<script src='fullcalendar/main.js'></script>
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		var calendarEl = document.getElementById('calendar');
-
-		var calendar = new FullCalendar.Calendar(calendarEl, {
-			selectable : true,
-			headerToolbar : {
-				left : 'today',
-				center : 'title',
-				right : 'dayGridMonth,prev,next'
-			},
-			locale: 'ja',
-			businessHours: {
-				daysOfWeek: [ 1, 2, 3, 4, 5],
-				startTime: '17:00',
-				endTime: '23:00'
-			},
-			events: [
-		        {
-		          id: 'event',
-		          title: 'Business Lunch',
-		          start: '2021-02-10T19:00:00',
-		          constraint: 'businessHours'
-		        }
-		      ],
-			dateClick : function(info) {
-				alert('clicked ' + info.dateStr);
-			},
-			select : function(info) {
-				alert('selected ' + info.startStr + ' to ' + info.endStr);
-			}
-		});
-
-		calendar.render();
-	});
-</script>
 </head>
 
 <body>
@@ -63,7 +26,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="	/">メニュー</a></li>
+					<li class="nav-item"><a class="nav-link" href="/menu">メニュー</a></li>
 					<li class="nav-item active"><a class="nav-link"
 						href="/reservation">予約<span class="sr-only">(current)</span>
 					</a></li>
@@ -71,44 +34,179 @@
 			</div>
 		</nav>
 	</header>
-	<h1>予約</h1>
-	<hr class="featurette-divider">
+	<div
+		class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+		<div class="col-md-5 p-lg-5 mx-auto my-5">
+			<h1 class="display-4 font-weight-normal">予約状況確認</h1>
+			<p class="lead font-weight-normal">こちらのページより予約が可能です。</p>
+		</div>
+		<div class="product-device shadow-sm d-none d-md-block"></div>
+		<div
+			class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+	</div>
 
 
 	<div class="container marketing">
 		<div id='calendar'></div>
 	</div>
 
-	<div class="col-2">
-		<button type="button" class="btn btn-primary mb-12"
-			data-toggle="modal" data-target="#testModal">ボタンで開く</button>
+	<div th:if="${pageMode}" class="container my-5 px-5">
+		<form class="form-signin" method="post" action="/login"
+			th:object="${account}">
+			<input type="text" id="inlineFormInputName2" class="form-control"
+				placeholder="お客様ID" th:field="*{name}" /> <input type="password"
+				id="inputPassword" class="form-control my-2" placeholder="パスワード"
+				th:field="*{password}" />
+			<button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
+		</form>
 	</div>
 
 
-	<!-- ボタン・リンククリック後に表示される画面の内容 -->
-	<div class="modal fade" id="testModal" tabindex="-1" role="dialog"
-		aria-labelledby="basicModal" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4>
-						<div class="modal-title" id="myModalLabel">削除確認画面</div>
-					</h4>
-				</div>
-				<div class="modal-body">
-					<label>データを削除しますか？</label>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-					<button type="button" class="btn btn-danger">削除</button>
-				</div>
+	<div th:unless="${pageMode}" class="container my-5 px-5">
+		<h1 th:text="${loginAccount.name} + 'さんのマイページ'"></h1>
+		<div class="container">
+			<!-- ページの要素はここから -->
+			<h4 class="p-reserve-ttl">ご予約</h4>
+			<div class="">
+				<form method="post" action="">
+					<!-- ご希望日 -->
+					<div class="form-group">
+						<label class="c-form-ttl">ご希望日</label><span
+							class="c-label-required">必須</span> <input type="text"
+							value="test" name="reserve_request_date" id="reserve_start_date">
+					</div>
+
+					<!-- ご希望時間 -->
+					<div class="form-group">
+						<label class="c-form-ttl">ご希望時間</label><span
+							class="c-label-required">必須</span> <select class="form-control"
+							name="reserve_request_time" id="reserve_request_start_time"
+							aria-invalide="false">
+							<option value="10時00分" label="10時00分" selected></option>
+							<option value="11時00分" label="11時00分"></option>
+							<option value="12時00分" label="12時00分"></option>
+							<option value="13時00分" label="13時00分"></option>
+							<option value="14時00分" label="14時00分"></option>
+							<option value="15時00分" label="15時00分"></option>
+							<option value="16時00分" label="16時00分"></option>
+							<option value="17時00分" label="17時00分"></option>
+							<option value="18時00分" label="18時00分"></option>
+						</select>
+					</div>
+
+					<!-- 電話番号 -->
+					<div class="form-group">
+						<label class="c-form-ttl">電話番号</label> <input class="form-control"
+							type="text" placeholder="例)090-0900-0900"
+							name="reserve_request_tels" id="reserve_request_client_tels_tel">
+					</div>
+					<!-- ご予約人数 -->
+					<div class="form-group">
+						<label class="c-form-ttl">ご予約人数</label> <select
+							class="form-control" name="reserve_request_num"
+							id="reserve_request_number_of_persons" aria-invalid="false">
+							<option value="1人" label="1人" selected></option>
+							<option value="2人" label="2人"></option>
+							<option value="3人" label="3人"></option>
+							<option value="4人" label="4人"></option>
+							<option value="5人以上" label="5人以上"></option>
+						</select>
+					</div>
+					<!-- 店舗からのお知らせ -->
+					<div class="form-group">
+						<label class="c-form-ttl">店舗からのお知らせ</label>
+						<p>
+							※16時以降のご来店は物件見学が不可能な場合がございます。1月～3月は無休で営業しております。 <br>【ご来店予約は、原則お電話確認をもって確定】させて頂いております。
+							<br>後ほど、担当ルームアドバイザーよりご連絡させて頂きます。
+						</p>
+					</div>
+					<!-- 店舗へのご要望・連絡事項 -->
+					<div class="form-group">
+						<label class="c-form-ttl">店舗へのご要望・連絡事項</label>
+						<textarea name="reserve_request_comment"
+							id="reserve_request_comment" cols="" rows="3"
+							class="form-control" placeholder="例)ご要望等あればご記入ください"></textarea>
+					</div>
+					<div>※当日の物件の空き状況やオーナー様の都合により、ご希望に沿えない可能性があることを予めご了承ください</div>
+
+					<!-- 予約する -->
+					<button type="submit" class="btn btn-primary">予約する</button>
+
+				</form>
 			</div>
+
 		</div>
 	</div>
 
+	<hr class="featurette-divider">
+
+	<!-- FOOTER -->
+	<footer class="container">
+		<p class="float-right">
+			<a href="/reservation">Back to top</a>
+		</p>
+		<p>© 2017-2018 Company, Inc.</p>
+	</footer>
+
+
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		/*[# th:if="${alert}"]*/
+		alert(/*[[ ${alertMessege} ]]*/);
+		/*[/]*/
+		/*]]>*/
+	</script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var calendarEl = document.getElementById('calendar');
+
+			var calendar = new FullCalendar.Calendar(calendarEl, {
+				selectable : true,
+				headerToolbar : {
+					left : 'today',
+					center : 'title',
+					right : 'dayGridMonth,prev,next'
+				},
+				locale : 'ja',
+				businessHours : {
+					daysOfWeek : [ 1, 2, 3, 4, 5 ],
+					startTime : '17:00',
+					endTime : '23:00'
+				},
+				events : [ {
+					id : 'event',
+					title : 'Business Lunch',
+					start : '2021-02-10T19:00:00',
+					constraint : 'businessHours'
+				} ],
+				dayClick : function(date, jsEvent, view) {
+					//クリックした日付が取れるよ
+					alert('Clicked on: ' + date.format());
+				}
+			});
+
+			calendar.render();
+		});
+	</script>
+
+
+	<script src='fullcalendar/main.js'></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js"
 		integrity="sha256-rPPF6R+AH/Gilj2aC00ZAuB2EKmnEjXlEWx5MkAp7bw="
 		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
 </body>
 </html>

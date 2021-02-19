@@ -23,7 +23,7 @@
 					<li class="nav-item active"><a class="nav-link" href="/">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="/">メニュー</a></li>
+					<li class="nav-item"><a class="nav-link" href="/menu">メニュー</a></li>
 					<li class="nav-item"><a class="nav-link" href="/reservation">予約</a></li>
 				</ul>
 			</div>
@@ -34,25 +34,19 @@
 		<div id="myCarousel" class="carousel slide pointer-event"
 			data-ride="carousel">
 			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class=""></li>
-				<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1" class=""></li>
 				<li data-target="#myCarousel" data-slide-to="2" class=""></li>
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item" data-bs-interval="500">
-					<img class="first-slide mainImage"
-						src="https://tblg.k-img.com/resize/660x370c/restaurant/images/Rvw/110051/110051548.jpg?token=b4d0b00&api=v2"
-						alt="First slide">
+					<img class="first-slide mainImage" th:src="@{/images/food004.jpg}" alt="First slide">
 				</div>
 				<div class="carousel-item active carousel-item-left">
-					<img class="second-slide mainImage"
-						src="https://tblg.k-img.com/resize/660x370c/restaurant/images/Rvw/110051/110051539.jpg?token=3d37b1e&api=v2"
-						alt="Second slide">
+					<img class="second-slide mainImage" th:src="@{/images/food005.jpg}" alt="Second slide">
 				</div>
 				<div class="carousel-item carousel-item-next carousel-item-left">
-					<img class="third-slide mainImage"
-						src="https://tblg.k-img.com/resize/660x370c/restaurant/images/Rvw/110051/110051553.jpg?token=5c89750&api=v2"
-						alt="Third slide">
+					<img class="third-slide mainImage" th:src="@{/images/food006.jpg}" alt="Third slide">
 				</div>
 			</div>
 			<a class="carousel-control-prev" href="#myCarousel" role="button"
@@ -82,7 +76,7 @@
 					<img class="featurette-image img-fluid mx-auto"
 						data-src="holder.js/500x500/auto" alt="500x500"
 						style="width: 500px; height: 500px;"
-						src="https://tblg.k-img.com/restaurant/images/Rvw/110051/320x320_square_110051494.jpg"
+						th:src="@{/images/food001.jpg}"
 						data-holder-rendered="true">
 				</div>
 			</div>
@@ -101,7 +95,7 @@
 				<div class="col-md-5 order-md-1">
 					<img class="featurette-image img-fluid mx-auto"
 						data-src="holder.js/500x500/auto" alt="500x500"
-						src="https://tblg.k-img.com/restaurant/images/Rvw/110051/320x320_square_110051643.jpg"
+						th:src="@{/images/food003.jpg}"
 						data-holder-rendered="true" style="width: 500px; height: 500px;">
 				</div>
 			</div>

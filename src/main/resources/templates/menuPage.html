@@ -9,6 +9,227 @@
 	crossorigin="anonymous">
 </head>
 <body>
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="/">居酒屋</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/menu">メニュー<span
+							class="sr-only">(current)</span></a></li>
+					<li class="nav-item"><a class="nav-link" href="/reservation">予約</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div
+		class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+		<div class="col-md-5 p-lg-5 mx-auto my-5">
+			<h1 class="display-4 font-weight-normal">メニュー一覧</h1>
+			<p class="lead font-weight-normal">旬の食材を使った一品</p>
+		</div>
+		<div class="product-device shadow-sm d-none d-md-block"></div>
+		<div
+			class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+	</div>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card mb-4 shadow-sm">
+					<img class="card-img-top"
+						data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+						alt="Thumbnail [100%x225]"
+						style="height: 225px; width: 100%; display: block;"
+						th:src="@{/images/food001.jpg}" data-holder-rendered="true">
+					<div class="card-body">
+						<p class="card-text">日本酒の肴はこれでしょう！</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">お気に入り</button>
+							</div>
+							<small class="text-muted">おすすめ</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-4 shadow-sm">
+					<img class="card-img-top"
+						data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+						alt="Thumbnail [100%x225]" th:src="@{/images/food002.jpg}"
+						data-holder-rendered="true"
+						style="height: 225px; width: 100%; display: block;">
+					<div class="card-body">
+						<p class="card-text">日本酒の肴はこれでしょう！</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">お気に入り</button>
+							</div>
+							<small class="text-muted">おすすめ</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-4 shadow-sm">
+					<img class="card-img-top"
+						data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+						alt="Thumbnail [100%x225]" th:src="@{/images/food003.jpg}"
+						data-holder-rendered="true"
+						style="height: 225px; width: 100%; display: block;">
+					<div class="card-body">
+						<p class="card-text">日本酒の肴はこれでしょう！</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">お気に入り</button>
+							</div>
+							<small class="text-muted">おすすめ</small>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card mb-4 shadow-sm">
+					<img class="card-img-top"
+						data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+						alt="Thumbnail [100%x225]" th:src="@{/images/food004.jpg}"
+						data-holder-rendered="true"
+						style="height: 225px; width: 100%; display: block;">
+					<div class="card-body">
+						<p class="card-text">日本酒の肴はこれでしょう！</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">お気に入り</button>
+							</div>
+							<small class="text-muted">おすすめ</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-4 shadow-sm">
+					<img class="card-img-top"
+						data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+						alt="Thumbnail [100%x225]" th:src="@{/images/food005.jpg}"
+						data-holder-rendered="true"
+						style="height: 225px; width: 100%; display: block;">
+					<div class="card-body">
+						<p class="card-text">日本酒の肴はこれでしょう！</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">お気に入り</button>
+							</div>
+							<small class="text-muted">おすすめ</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-4 shadow-sm">
+					<img class="card-img-top"
+						data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+						alt="Thumbnail [100%x225]" th:src="@{/images/food006.jpg}"
+						data-holder-rendered="true"
+						style="height: 225px; width: 100%; display: block;">
+					<div class="card-body">
+						<p class="card-text">豊洲仲卸の神奈辰直送！</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">お気に入り</button>
+							</div>
+							<small class="text-muted">おすすめ</small>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card mb-4 shadow-sm">
+					<img class="card-img-top"
+						data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+						alt="Thumbnail [100%x225]" th:src="@{/images/food007.jpg}"
+						data-holder-rendered="true"
+						style="height: 225px; width: 100%; display: block;">
+					<div class="card-body">
+						<p class="card-text">創作串のおまかせの盛合せです。</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">お気に入り</button>
+							</div>
+							<small class="text-muted">おすすめ</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-4 shadow-sm">
+					<img class="card-img-top"
+						data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+						alt="Thumbnail [100%x225]" th:src="@{/images/food008.jpg}"
+						data-holder-rendered="true"
+						style="height: 225px; width: 100%; display: block;">
+					<div class="card-body">
+						<p class="card-text">タレもすべて自家製。</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">お気に入り</button>
+							</div>
+							<small class="text-muted">おすすめ</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card mb-4 shadow-sm">
+					<img class="card-img-top"
+						data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+						alt="Thumbnail [100%x225]" th:src="@{/images/food009.jpg}"
+						data-holder-rendered="true"
+						style="height: 225px; width: 100%; display: block;">
+					<div class="card-body">
+						<p class="card-text">日本酒の肴はこれでしょう！</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">お気に入り</button>
+							</div>
+							<small class="text-muted">おすすめ</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr class="featurette-divider">
+
+	<!-- FOOTER -->
+	<footer class="container">
+		<p class="float-right">
+			<a href="/menu">Back to top</a>
+		</p>
+		<p>© 2017-2018 Company, Inc.</p>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 
 </body>
 </html>
